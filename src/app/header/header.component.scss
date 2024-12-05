@@ -1,0 +1,34 @@
+.appheader {
+    background-color: #fff;
+    height: 70px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.languages {
+    flex: 20%;
+    margin: 15px;
+    border: solid, 1px, black;
+    color: green;
+    
+}
+
+.search {
+    flex: 50%;
+    margin: 15px;
+    border-radius: 25px;
+    border: none;
+    background-color: #f5f2f2d7;
+    padding-left: 30px;
+}
+
+input:focus {
+    outline: none;
+    border: none;
+}
+
+.search-btn {
+    flex: 10%;
+    //height: 30px;
+    margin: 15px;
+}

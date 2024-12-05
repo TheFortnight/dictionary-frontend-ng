@@ -1,0 +1,17 @@
+@if (dictionaries) {
+<div class="appheader">
+    <select name="dictionaries" class="languages">
+
+        @for (dictionary of dictionaries; track dictionary.id) {
+
+            <option value="{{dictionary.id}}">{{dictionary.name}}</option>
+
+        }           
+        
+    </select>
+    <input type="text" placeholder="Search.." class="search">
+    <button type="submit" class="search-btn">SEARCH</button>
+</div>
+} @else {
+    <p>Not Working</p>
+}
