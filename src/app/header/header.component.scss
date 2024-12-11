@@ -1,34 +1,78 @@
 .appheader {
-    background-color: #fff;
-    height: 70px;
-    display: flex;
-    justify-content: space-around;
+  background-color: #fff;
+  height: 70px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .languages {
-    flex: 20%;
-    margin: 15px;
-    border: solid, 1px, black;
-    color: green;
-    
+  flex: 20%;
+  margin: 15px;
+  border: solid, 1px, black;
+  color: green;
+
+}
+
+.searchcontainer {
+  flex: 50%;
+
+  position: relative;
+  display: inline-block
 }
 
 .search {
-    flex: 50%;
-    margin: 15px;
-    border-radius: 25px;
-    border: none;
-    background-color: #f5f2f2d7;
-    padding-left: 30px;
+  width: 80%;
+  height: 60%;
+  /* Optional: adjust input width */
+  box-sizing: border-box;
+  /* Ensure padding/border does not affect width */
+  margin: 15px;
+  border-radius: 25px;
+  border: none;
+  background-color: #f5f2f2d7;
+  padding-left: 30px;
 }
 
+.searchresults {
+  position: absolute;
+  border-radius: 5px;
+  /* Position relative to the container */
+  top: 60%;
+  /* Place the dropdown immediately below the input */
+  left: 5%;
+  /* Align the dropdown to the left edge of the input */
+  width: 75%;
+  /* Match the width of the input */
+  z-index: 1000;
+  /* Ensure the dropdown appears above other content */
+  background-color: white;
+  /* Optional: match the input background */
+  border: 1px solid #ccc;
+  /* Optional: add a border to the dropdown */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Optional: add a shadow */
+ 
+  display: block;
+}
+
+.searchresults li {
+    padding: 8px 12px; /* Add some spacing */
+    cursor: pointer; /* Indicate clickable items */
+    border-bottom: 1px solid #f0f0f0; /* Optional: separate items */
+  }
+  
+.searchresults option:hover {
+    background-color: #f0f0f0; /* Highlight on hover */
+  }
+
 input:focus {
-    outline: none;
-    border: none;
+  outline: none;
+  border: none;
 }
 
 .search-btn {
-    flex: 10%;
-    //height: 30px;
-    margin: 15px;
+  flex: 10%;
+
+  //height: 30px;
+  margin: 15px;
 }

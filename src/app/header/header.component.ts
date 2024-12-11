@@ -1,6 +1,7 @@
 import { Component, inject, Input, AfterViewInit } from '@angular/core';
 import { Dictionary } from '../data/interfaces/dictionary.interface';
 import { DictionariesService } from '../data/services/dictionaries.service';
+import { SearchService } from '../data/services/search.service';
 
 
 
@@ -10,7 +11,7 @@ import { DictionariesService } from '../data/services/dictionaries.service';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent implements AfterViewInit {
+export class HeaderComponent extends SearchService{
  @Input() dictionary!: Dictionary;
  title = 'dictionary';
   dictionariesService = inject(DictionariesService)
@@ -18,19 +19,12 @@ export class HeaderComponent implements AfterViewInit {
 
   constructor() {
 
+    super();
     this.dictionariesService.getDictionaries()
       .subscribe(val => {
         this.dictionaries = val;
       });
-
     
     }
 
-    ngAfterViewInit(): void {
-      //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
-      //Add 'implements AfterViewInit' to the class.
-      this.dictionariesService.addSearchBtnListener()
-
-    
-  }
 }

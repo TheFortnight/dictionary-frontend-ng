@@ -1,17 +1,31 @@
 @if (dictionaries) {
 <div class="appheader">
-    <select name="dictionaries" class="languages">
+  <select name="dictionaries" #language class="languages">
 
-        @for (dictionary of dictionaries; track dictionary.id) {
+    @for (dictionary of dictionaries; track dictionary.id) {
 
-            <option value="{{dictionary.id}}">{{dictionary.name}}</option>
+    <option value="{{dictionary.id}}">{{dictionary.name}}</option>
 
-        }           
+    }
+
+  </select>
+  <div class="searchcontainer">
+    <input type="text" placeholder="Search.." class="search" (input)="showSearchResult($event, language.value)">
+    @if (words) {
+        <ul name="" id="searchresults" class="searchresults" >
+
+        @for (word of words; track word.id) {
+
+            <li value="{{word.id}}" (click)="showWordInfo(word.id)">{{word.word}}</li>
         
-    </select>
-    <input type="text" placeholder="Search.." class="search">
+            }
+        </ul>
+    }
+    
     <button type="submit" class="search-btn">SEARCH</button>
+  </div>
+
 </div>
 } @else {
-    <p>Not Working</p>
+<p>Not Working</p>
 }
