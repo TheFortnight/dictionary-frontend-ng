@@ -6,15 +6,24 @@
 }
 
 .languages {
-  flex: 20%;
+  flex: 10%;
+  max-width: 25 0px;
   margin: 15px;
-  border: solid, 1px, black;
+  border: none;
   color: green;
+  height: 60%;
+  
 
 }
 
+.languages:focus {
+  
+  background-color: #e1eef4;
+  border-radius: 5px;
+}
+
 .searchcontainer {
-  flex: 50%;
+  flex: 70%;
 
   position: relative;
   display: inline-block
@@ -41,7 +50,7 @@
   /* Position relative to the container */
   top: 60%;
   /* Place the dropdown immediately below the input */
-  left: 5%;
+  left: 10%;
   /* Align the dropdown to the left edge of the input */
   width: 75%;
   /* Match the width of the input */

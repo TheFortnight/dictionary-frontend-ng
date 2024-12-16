@@ -14,18 +14,15 @@ export class CardsComponent {
   constructor(private searchService: SearchService) {}
 
   result: WordInfo | null = null;
-  //res: any | null = null;  
+  
 
   ngOnInit(): void {
     console.log('Subscribing to wordDetails...');
     this.searchService.getWordDetails.subscribe(details => {
-        console.log('Received wordDetails update:', details); // Log updates
-       // this.result = details;
+        //console.log('Received wordDetails update:', details); // Log updates
+       
        this.result = details;
       });
   }
 
-  showRes() {
-    console.log('RES: ', this.result);
-  }
 }

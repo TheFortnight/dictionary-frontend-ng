@@ -1,21 +1,47 @@
 @if(result) {
+    <div class="card-container">
     <div class="cards-container">
         <div class="card">
-            <div class="card-definition">
-                <p>definition</p>
+            
+            <div class="card-content">
+            <div class="card-definitions">
+                <h3>definitions</h3>
+                <ol class="card-definitions__list">
+                    @for (definition of result.definitions; track definition.id) {
+
+                        <li>{{definition.definition}}</li>
+                    
+                        }
+                </ol>
+                
             </div>
-            <button type="button" (click)="showRes()">showRes</button>
+            
             <div class="card-examples">
-                <div class="card-example"><p>example</p></div>
-                <div class="card-example"><p>exmaple</p></div>
+                <h3>examples</h3>
+                <ol start="1" class="card-examples__list">
+                    @for (example of result.examples; track example) {
+
+                        <li>{{example.example}}</li>
+                    
+                        }
+                </ol>
             </div>
-            <div class="card-synonyms">
-                <div class="card-synonym"><p>synonym</p></div>
-                <div class="card-synonym"><p>synonym</p></div>s
+            <div class="card-linked_words">
+                <h3>linked words</h3>
+                <ol class="card-linked_words__list">
+                    @for (link of result.links; track link) {
+
+                        <li><i>{{link.relationship_type}}</i></li>
+                    
+                        }
+                </ol>
             </div>
+        </div>  
         </div>
         
         </div>
+        <div class="scrollbar"></div>
+    </div>
         
 } @else {
     <p>No Result</p>

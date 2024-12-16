@@ -47,6 +47,25 @@ export class HeaderComponent {
     } else {
       this.words = null;
     }
+   
+  }
+
+  showSearchResultDict(word: string, event: Event) {
+    const target = event.target as HTMLInputElement;
+    const lang_id = target.value;
+   
+    const langIdNum: number = parseInt(lang_id)
+    if (word.length >= 3) {
+      this.searchService.searchWord(word, langIdNum).subscribe(result => {
+        result.forEach(res => {
+          console.log('Search Result: ', res.word)
+        });
+        this.words = result;
+        
+      })
+    } else {
+      this.words = null;
+    }
 
    
   }

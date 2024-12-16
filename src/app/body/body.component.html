@@ -1,8 +1,10 @@
-<div class="body-container">
+@if(result) {
+  <div class="body-container">
   <div class="body-search-result-summary">
     <div class="body-word">
-      <h2>Searched Word</h2>
+      <h2>{{result.word.word}}</h2>
     </div>
   </div>
 <app-cards></app-cards>
 </div>
+}

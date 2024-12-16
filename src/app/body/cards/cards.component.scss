@@ -1,7 +1,7 @@
 .cards-container {
     display: flex;
     padding: 20px;
-    border: solid 1px red;
+    //border: solid 1px red;
     flex-wrap: wrap;
     justify-content: space-between;
 }
@@ -15,10 +15,57 @@
     min-width: 300px;
     display: block;
     margin-bottom: 25px;
+
+    /* Updated overflow properties */
+    overflow: hidden; /* Hide scrollbar overflow outside border-radius */
+    position: relative; /* Needed for clipping */
+}
+
+.card-content {
+    height: 100%;
+    padding: 5px;
+    overflow-y: auto; /* Scrollable area only inside the clipped content */
+    padding-right: 10px; /* Avoid overlap with scrollbar */
+    box-sizing: border-box;
+}
+
+/* Webkit Scrollbars */
+.card-content::-webkit-scrollbar {
+    width: 5px;
+}
+
+.card-content::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 20px;
+}
+
+.card-content::-webkit-scrollbar-thumb {
+    background: #708fea;
+    border-radius: 20px;
+}
+
+.card-content::-webkit-scrollbar-thumb:hover {
+    background: #4a6ad6;
 }
 
 @media (max-width: 600px) { /* Adjust this breakpoint as needed */
     .card {
         width: 100%; /* Full width for narrow screens */
     }
+}
+
+h3, li {
+    text-align: left;
+}
+
+h3 {
+    padding-left: 15px;
+}
+
+li {
+    font-size: 18px;
+}
+
+.card > div {
+    margin-bottom: 30px;
 }
