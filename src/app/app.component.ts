@@ -21,9 +21,10 @@ import { Dictionary } from './data/interfaces/dictionary.interface';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, AppcontainerComponent, HeaderComponent],
+  imports: [AppcontainerComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
+  standalone: true,
 })
 export class AppComponent {
   /*title = 'dictionary';

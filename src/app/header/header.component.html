@@ -10,13 +10,13 @@
 
   </select>
   <div class="searchcontainer">
-    <input type="text" placeholder="Search.." class="search" (input)="showSearchResult($event, language.value)">
+    <input type="text" placeholder="Search.." class="search" #searchinput (input)="showSearchResult($event, language.value)">
     @if (words) {
         <ul name="" id="searchresults" class="searchresults" >
 
         @for (word of words; track word.id) {
 
-            <li value="{{word.id}}" (click)="showWordInfo(word.id)">{{word.word}}</li>
+            <li value="{{word.id}}" (click)="searchinput.value =''" (click)="showWordInfo(word.id)">{{word.word}}</li>
         
             }
         </ul>

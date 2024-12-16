@@ -31,9 +31,11 @@
   border: none;
   background-color: #f5f2f2d7;
   padding-left: 30px;
+  font-size: 18px;
 }
 
 .searchresults {
+  list-style-type: none;
   position: absolute;
   border-radius: 5px;
   /* Position relative to the container */
@@ -51,19 +53,25 @@
   /* Optional: add a border to the dropdown */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   /* Optional: add a shadow */
- 
   display: block;
+
 }
 
 .searchresults li {
-    padding: 8px 12px; /* Add some spacing */
-    cursor: pointer; /* Indicate clickable items */
-    border-bottom: 1px solid #f0f0f0; /* Optional: separate items */
-  }
-  
+  padding: 8px 12px;
+  /* Add some spacing */
+  cursor: pointer;
+  /* Indicate clickable items */
+  border-bottom: 1px solid #f0f0f0;
+  /* Optional: separate items */
+  font-size: 18px;
+  text-align: left;
+}
+
 .searchresults option:hover {
-    background-color: #f0f0f0; /* Highlight on hover */
-  }
+  background-color: #f0f0f0;
+  /* Highlight on hover */
+}
 
 input:focus {
   outline: none;
@@ -73,6 +81,6 @@ input:focus {
 .search-btn {
   flex: 10%;
 
-  //height: 30px;
+  height: 30px;
   margin: 15px;
 }

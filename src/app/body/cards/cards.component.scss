@@ -1,0 +1,24 @@
+.cards-container {
+    display: flex;
+    padding: 20px;
+    border: solid 1px red;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card {
+    border: solid 4px rgb(112, 143, 234);
+    border-radius: 25px;
+    padding: 5px;
+    height: 250px;
+    width: 48%;
+    min-width: 300px;
+    display: block;
+    margin-bottom: 25px;
+}
+
+@media (max-width: 600px) { /* Adjust this breakpoint as needed */
+    .card {
+        width: 100%; /* Full width for narrow screens */
+    }
+}
