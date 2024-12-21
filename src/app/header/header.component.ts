@@ -25,7 +25,7 @@ export class HeaderComponent {
       .subscribe(val => {
         this.dictionaries = val;
       });
-    
+
   }
 
   words: Word[] | null = [];
@@ -34,40 +34,40 @@ export class HeaderComponent {
   showSearchResult(event: Event, lang_id: string) {
     const target = event.target as HTMLInputElement;
     const word = target.value;
-   
+
     const langIdNum: number = parseInt(lang_id)
     if (word.length >= 3) {
       this.searchService.searchWord(word, langIdNum).subscribe(result => {
-        result.forEach(res => {
+        result.data.forEach(res => {
           console.log('Search Result: ', res.word)
         });
-        this.words = result;
-        
+        this.words = result.data;
+
       })
     } else {
       this.words = null;
     }
-   
+
   }
 
   showSearchResultDict(word: string, event: Event) {
     const target = event.target as HTMLInputElement;
     const lang_id = target.value;
-   
+
     const langIdNum: number = parseInt(lang_id)
     if (word.length >= 3) {
       this.searchService.searchWord(word, langIdNum).subscribe(result => {
-        result.forEach(res => {
+        result.data.forEach(res => {
           console.log('Search Result: ', res.word)
         });
-        this.words = result;
-        
+        this.words = result.data;
+
       })
     } else {
       this.words = null;
     }
 
-   
+
   }
 
   showWordInfo(word_id: number){
@@ -76,10 +76,10 @@ export class HeaderComponent {
     this.searchService.getWordInfo(word_id).subscribe(result => {
       console.log('API Response for Word Info:', result); // Log full response
       this.wordInfo = result;
-      
+
       //console.log('Emitting to BehaviorSubject:', this.wordInfo); // Log emission
       this.searchService.wordDetails.next(result); // Emit updated data
-     
+
     });
   }
 
