@@ -19,7 +19,7 @@ export class SearchService {
 
   searchWord(word: string, language_id: number) {
     
-    return this.http.get<Word[]>(`${this.baseApiUrl}search?word=${word}&language_id=${language_id}`)
+    return this.http.get<Word[]>(`${this.baseApiUrl}words?word=${word}&language_id=${language_id}`)
     
   }
 

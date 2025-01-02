@@ -15,12 +15,15 @@ import { WordInfo } from '../data/interfaces/wordInfo.interface';
   standalone: true,
 })
 export class HeaderComponent {
+
+  searchService = inject(SearchService);
+  
  @Input() dictionary!: Dictionary;
  title = 'dictionary';
   dictionariesService = inject(DictionariesService)
   dictionaries: Dictionary[] = []
 
-  constructor(private searchService: SearchService) {
+  constructor() {
     this.dictionariesService.getDictionaries()
       .subscribe(val => {
         this.dictionaries = val;
