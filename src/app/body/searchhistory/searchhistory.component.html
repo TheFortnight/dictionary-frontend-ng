@@ -1,0 +1,15 @@
+<div class="search-history-container">
+  <div class="search-history-content">
+    <h3>search history</h3>
+    
+        <ul class="search-history__items">
+        @for (word of historyToShow; track word.id) {
+
+            <li (click)="openWordFromHistory(word.id)">{{ word.word }}</li>  
+
+            }
+        </ul> 
+    
+    
+  </div>
+</div>

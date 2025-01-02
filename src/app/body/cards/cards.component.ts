@@ -19,7 +19,7 @@ export class CardsComponent {
   
 
   ngOnInit(): void {
-    console.log('Subscribing to wordDetails...');
+   // console.log('Subscribing to wordDetails...');
     this.searchService.getWordDetails.subscribe(details => {
         //console.log('Received wordDetails update:', details); // Log updates
        

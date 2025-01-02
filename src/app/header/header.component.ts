@@ -2,7 +2,8 @@ import {
   Component,
   inject,
   Input,
-  AfterViewInit
+  AfterViewInit,
+  Injectable
 } from '@angular/core';
 import {
   Dictionary
@@ -29,6 +30,11 @@ import {
   styleUrl: './header.component.scss',
   standalone: true,
 })
+
+@Injectable({
+  providedIn: 'root'
+})
+
 export class HeaderComponent {
   @Input() dictionary!: Dictionary;
   title = 'dictionary';
@@ -75,6 +81,7 @@ export class HeaderComponent {
       this.searchService.searchWord(word, langIdNum).subscribe(result => {
         result.data.forEach(res => {
           console.log('Search Result: ', res.word)
+          
         });
         this.words = result.data;
 
@@ -92,6 +99,7 @@ export class HeaderComponent {
     this.searchService.getWordInfo(word_id).subscribe(result => {
       console.log('API Response for Word Info:', result); // Log full response
       this.wordInfo = result;
+      this.searchService.updateHistory({word: result.word.word, id: result.word.id});
 
       //console.log('Emitting to BehaviorSubject:', this.wordInfo); // Log emission
       this.searchService.wordDetails.next(result); // Emit updated data

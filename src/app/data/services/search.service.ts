@@ -4,6 +4,7 @@ import { Word } from '../interfaces/word.interface';
 import { WordInfo } from '../interfaces/wordInfo.interface';
 import { BehaviorSubject } from 'rxjs';
 import {SearchDtoInterface} from '../interfaces/searchDto.interface';
+import { HistoryItem } from '../interfaces/history_item.interface';
 
 
 @Injectable({
@@ -29,18 +30,17 @@ export class SearchService {
   }
 
   wordDetails = new BehaviorSubject<WordInfo | null>(null);
-  //wordDetails = new BehaviorSubject('fisrt state');
-
   getWordDetails = this.wordDetails.asObservable();
 
   updateDetails(wordDet: WordInfo) {
     this.wordDetails.next(wordDet)
   }
 
+  searchHistory = new BehaviorSubject<HistoryItem | null>(null);
+  getSearchHistory = this.searchHistory.asObservable();
 
-  showWordInfo(word_id: number) {
-
-
+  updateHistory(searchedWord: HistoryItem) {
+    this.searchHistory.next(searchedWord);
   }
 
   res: any | null = null;
