@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { SearchService } from '../../data/services/search.service';
 import { WordInfo } from '../../data/interfaces/wordInfo.interface';
 import { filter } from 'rxjs/operators';
@@ -11,7 +11,9 @@ import { filter } from 'rxjs/operators';
 })
 export class CardsComponent {
 
-  constructor(private searchService: SearchService) {}
+  searchService = inject(SearchService)
+
+  constructor() {}
 
   result: WordInfo | null = null;
   
