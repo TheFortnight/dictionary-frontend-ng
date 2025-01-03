@@ -16,6 +16,7 @@ export class SearchService {
   http = inject(HttpClient)
   baseApiUrl = 'http://127.0.0.1:8051/api/';
   words: Word[] | null = [];
+  wordInfo!: WordInfo;
 
 
   searchWord(word: string, language_id: number) {
@@ -53,6 +54,21 @@ export class SearchService {
        this.res = details;
       });
   }
+
+  showWordInfo(word_id: number) {
+    console.log('showWordInfo is called');
+    this.words = null;
+    this.getWordInfo(word_id).subscribe(result => {
+      console.log('API Response for Word Info:', result); // Log full response
+      this.wordInfo = result;
+      this.updateHistory({word: result.word.word, id: result.word.id});
+
+      //console.log('Emitting to BehaviorSubject:', this.wordInfo); // Log emission
+      this.wordDetails.next(result); // Emit updated data
+
+    });
+  }
+
 
 
 }

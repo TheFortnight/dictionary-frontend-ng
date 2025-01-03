@@ -51,7 +51,7 @@ export class HeaderComponent {
   }
 
   words: Word[] | null = [];
-  wordInfo!: WordInfo;
+  //wordInfo!: WordInfo;
 
   showSearchResult(event: Event, lang_id: string) {
     const target = event.target as HTMLInputElement;
@@ -94,6 +94,11 @@ export class HeaderComponent {
   }
 
   showWordInfo(word_id: number) {
+    this.searchService.showWordInfo(word_id);
+    this.words = null;
+  }
+
+  /*showWordInfo(word_id: number) {
     console.log('showWordInfo is called');
     this.words = null;
     this.searchService.getWordInfo(word_id).subscribe(result => {
@@ -105,6 +110,6 @@ export class HeaderComponent {
       this.searchService.wordDetails.next(result); // Emit updated data
 
     });
-  }
+  }*/
 
 }

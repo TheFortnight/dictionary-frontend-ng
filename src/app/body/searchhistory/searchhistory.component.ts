@@ -18,7 +18,7 @@ import { HeaderComponent } from '../../header/header.component';
 export class SearchhistoryComponent {
 
   searchService = inject(SearchService);
-  headerComponent = inject(HeaderComponent);
+  //headerComponent = inject(HeaderComponent);
 
   history: HistoryItem [] = [];
   historyToShow: HistoryItem [] = [];
@@ -48,7 +48,7 @@ export class SearchhistoryComponent {
   }
 
   openWordFromHistory(word_id: number) {
-    this.headerComponent.showWordInfo(word_id);
+    this.searchService.showWordInfo(word_id);
   }
 
 
