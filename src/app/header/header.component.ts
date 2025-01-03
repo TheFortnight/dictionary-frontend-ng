@@ -97,19 +97,4 @@ export class HeaderComponent {
     this.searchService.showWordInfo(word_id);
     this.words = null;
   }
-
-  /*showWordInfo(word_id: number) {
-    console.log('showWordInfo is called');
-    this.words = null;
-    this.searchService.getWordInfo(word_id).subscribe(result => {
-      console.log('API Response for Word Info:', result); // Log full response
-      this.wordInfo = result;
-      this.searchService.updateHistory({word: result.word.word, id: result.word.id});
-
-      //console.log('Emitting to BehaviorSubject:', this.wordInfo); // Log emission
-      this.searchService.wordDetails.next(result); // Emit updated data
-
-    });
-  }*/
-
 }
