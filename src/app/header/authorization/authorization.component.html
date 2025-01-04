@@ -1,0 +1,42 @@
+<div class="auth-container">
+  <div class="auth-btn" (click)="openModal()">Sign in</div>
+  @if(modal) {
+  <div class="auth-modal-layer" (click)="closeModal($event)">
+    <div class="auth-modal">
+      <div class="auth-modal_header">
+        <div class="auth-modal_header__signin">sign in</div>
+        <div class="auth-modal_header__registration">registration</div>
+        @if(error) {
+        <div class="error-msg">
+          <p>{{error}}</p>
+        </div>
+        }
+
+      </div>
+      <div class="auth-modal_body">
+        <form class="registration-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <label class="registration-control-label">
+            Username
+            <input formControlName="name" type="text" class="registration-input" placeholder="Enter Username">
+          </label>
+
+          <label class="registration-control-label">
+            Email
+            <input formControlName="email" type="text" class="registration-input" placeholder="Enter Email">
+          </label>
+
+          <label class="registration-control-label">
+            Password
+            <input formControlName="password" type="password" class="registration-input" placeholder="Enter Password">
+          </label>
+          <button class="registration-btn" type="submit">Register</button>
+        </form>
+      </div>
+      <div class="auth-modal_footer">
+
+      </div>
+    </div>
+
+  </div>
+  }
+</div>

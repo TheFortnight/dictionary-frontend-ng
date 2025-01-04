@@ -9,7 +9,7 @@ import { WordInfo } from '../interfaces/wordInfo.interface';
 })
 export class DictionariesService {
   http = inject(HttpClient)
-  baseApiUrl = 'http://127.0.0.1:8051/api/';
+  baseApiUrl = 'https://res8.some-programator.ru/api/' //'http://127.0.0.1:8051/api/';
   words: Word[] = [];
   
 

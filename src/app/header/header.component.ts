@@ -20,12 +20,13 @@ import {
 import {
   WordInfo
 } from '../data/interfaces/wordInfo.interface';
+import { AuthorizationComponent } from "./authorization/authorization.component";
 
 
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  imports: [AuthorizationComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
   standalone: true,

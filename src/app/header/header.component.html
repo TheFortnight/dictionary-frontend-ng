@@ -9,6 +9,7 @@
     }
 
   </select>
+
   <div class="searchcontainer">
     <input type="text" placeholder="Search.." class="search" #searchinput (input)="showSearchResult($event, language.value)">
     @if (words && words!.length > 0) {
@@ -24,6 +25,8 @@
     
     
   </div>
+
+  <app-authorization></app-authorization>
 
 </div>
 } @else {

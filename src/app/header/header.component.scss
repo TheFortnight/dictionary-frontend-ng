@@ -12,8 +12,6 @@
   border: none;
   color: green;
   height: 60%;
-  
-
 }
 
 .languages:focus {
@@ -23,7 +21,7 @@
 }
 
 .searchcontainer {
-  flex: 70%;
+  flex: 65%;
 
   position: relative;
   display: inline-block
@@ -92,4 +90,9 @@ input:focus {
 
   height: 30px;
   margin: 15px;
+}
+
+app-authorization {
+  width: 10%;
+  margin-right: 50px;
 }
