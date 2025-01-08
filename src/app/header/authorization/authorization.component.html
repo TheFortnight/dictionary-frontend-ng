@@ -1,20 +1,33 @@
 <div class="auth-container">
+  @if(signedIn) {
+  @if(currUserName){
+  <div class="auth-btn" (click)="logout()">{{currUserName}} Sign out</div>
+  }
+  @else {
+  <div class="auth-btn" (click)="logout()"> Sign out</div>
+  }
+  }
+  @if(!signedIn) {
   <div class="auth-btn" (click)="openModal()">Sign in</div>
+  }
+
   @if(modal) {
   <div class="auth-modal-layer" (click)="closeModal($event)">
     <div class="auth-modal">
       <div class="auth-modal_header">
-        <div class="auth-modal_header__signin">sign in</div>
-        <div class="auth-modal_header__registration">registration</div>
+        <div class="auth-modal_header__signin" (click)="modalSignin = true" (click)="error = null">sign in</div>
+        <div class="auth-modal_header__registration" (click)="modalSignin = false" (click)="error = null">registration
+        </div>
+        <button class="auth-modal-close" type="button">x</button>
+      </div>
+      <div class="auth-modal_body">
         @if(error) {
         <div class="error-msg">
           <p>{{error}}</p>
         </div>
         }
-
-      </div>
-      <div class="auth-modal_body">
-        <form class="registration-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        @if(!modalSignin) {
+        <form class="registration-form" [formGroup]="registerForm" (ngSubmit)="registerUser()">
           <label class="registration-control-label">
             Username
             <input formControlName="name" type="text" class="registration-input" placeholder="Enter Username">
@@ -31,6 +44,23 @@
           </label>
           <button class="registration-btn" type="submit">Register</button>
         </form>
+        }
+
+        @if(modalSignin) {
+        <form class="sign-in-form" [formGroup]="loginForm" (ngSubmit)="signIn()">
+
+          <label class="sing-in-control-label">
+            Email
+            <input formControlName="email" type="text" class="sign-in-input" placeholder="Enter Email">
+          </label>
+
+          <label class="sing-in-control-label">
+            Password
+            <input formControlName="password" type="password" class="sing-in-input" placeholder="Enter Password">
+          </label>
+          <button class="sign-in-btn" type="submit">Sign in</button>
+        </form>
+        }
       </div>
       <div class="auth-modal_footer">
 

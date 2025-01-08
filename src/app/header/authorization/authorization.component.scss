@@ -18,6 +18,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: auto;
 }
 
 .auth-modal {
@@ -38,12 +39,24 @@
     border: green solid 1px;
     display: inline-block;
     margin: 2px;
-    width: 49%;
+    width: 45%;
     height: 90%;
+    cursor: pointer;
     
 }
-
 .error-msg {
     display: block;
     color: red;
+}
+.auth-modal-close{
+    display: inline-block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    font-size: 16px;
+    margin-top: 8px;
+    
+    
+    
+
 }
