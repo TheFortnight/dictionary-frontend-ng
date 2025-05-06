@@ -30,7 +30,7 @@ export class AuthService {
   constructor() {}
 
   http = inject(HttpClient);
-  baseApiUrl = 'https://res8.some-programator.ru/api/' //'http://127.0.0.1:8051/api/registration';
+  baseApiUrl = 'http://127.0.0.1:8000/api/registration' // 'https://res8.some-programator.ru/api/' //;
   cookieService = inject(CookieService);
   token: string | null = this.cookieService.get('token');
   

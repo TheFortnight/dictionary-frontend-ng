@@ -8,7 +8,11 @@
   }
   }
   @if(!signedIn) {
-  <div class="auth-btn" (click)="openModal()">Sign in</div>
+  <div class="auth-btn" (click)="openModal()">
+    <img src="/assets/user.svg" alt="user icon" class="auth-icon">
+    <p>Sing in</p>
+    
+  </div>
   }
 
   @if(modal) {
